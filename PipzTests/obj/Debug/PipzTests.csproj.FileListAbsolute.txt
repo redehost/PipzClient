@@ -17,3 +17,22 @@ c:\users\fabio.junior\documents\visual studio 2017\Projects\RedeHost.Pipz\PipzTe
 c:\users\fabio.junior\documents\visual studio 2017\Projects\RedeHost.Pipz\PipzTests\obj\Debug\PipzTests.dll
 c:\users\fabio.junior\documents\visual studio 2017\Projects\RedeHost.Pipz\PipzTests\obj\Debug\PipzTests.pdb
 c:\users\fabio.junior\documents\visual studio 2017\Projects\RedeHost.Pipz\PipzTests\bin\Debug\PipzTests.dll.config
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\PipzTests.dll.config
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\PipzTests.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\PipzTests.pdb
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\RestClient.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\RestClient.pdb
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\obj\Debug\PipzTests.csprojAssemblyReference.cache
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\obj\Debug\PipzTests.csproj.CoreCompileInputs.cache
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\obj\Debug\PipzTests.csproj.CopyComplete
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\obj\Debug\PipzTests.dll
+C:\Users\fabio.junior\Source\Repos\PipzClient\PipzTests\obj\Debug\PipzTests.pdb
