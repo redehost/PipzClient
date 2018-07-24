@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipz", "RestClient\Pipz.csproj", "{A115B47B-FAF9-4719-BCAF-E0D67341033C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipzTests", "PipzTests\PipzTests.csproj", "{E5124E1D-63AA-4B24-A977-EB19A232BAD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A115B47B-FAF9-4719-BCAF-E0D67341033C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A115B47B-FAF9-4719-BCAF-E0D67341033C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A115B47B-FAF9-4719-BCAF-E0D67341033C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A115B47B-FAF9-4719-BCAF-E0D67341033C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5124E1D-63AA-4B24-A977-EB19A232BAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5124E1D-63AA-4B24-A977-EB19A232BAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5124E1D-63AA-4B24-A977-EB19A232BAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5124E1D-63AA-4B24-A977-EB19A232BAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBDD6FE7-08EC-411E-9528-48C167467D3B}
+	EndGlobalSection
+EndGlobal
