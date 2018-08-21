@@ -24,6 +24,7 @@
 
 [Ww]eb.[Rr]elease.config
 [Ww]eb.[Rr]atify.config
+[Aa]pp.config
 
 # Click-Once directory
 **/publish/
