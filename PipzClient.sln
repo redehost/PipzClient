@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipz", "RestClient\Pipz.csproj", "{A115B47B-FAF9-4719-BCAF-E0D67341033C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipzClient", "PipzClient\PipzClient.csproj", "{A115B47B-FAF9-4719-BCAF-E0D67341033C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipzTests", "PipzTests\PipzTests.csproj", "{E5124E1D-63AA-4B24-A977-EB19A232BAD2}"
 EndProject
