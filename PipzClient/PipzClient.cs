@@ -49,7 +49,7 @@ namespace Pipz
                 throw new HttpRequestException(request.Result.StatusCode.ToString());
         }
 
-        public void Track(string eventName, Dictionary<string, string> properties, User user)
+        public void Track(string eventName, Dictionary<string, object> properties, User user)
         {
             if (eventName == null)
                 throw new NullReferenceException("eventName");
