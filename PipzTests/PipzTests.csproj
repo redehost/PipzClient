@@ -57,9 +57,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestClientTests.cs" />
+    <Compile Include="PipzClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="App-sample.config" />
     <None Include="packages.config" />
   </ItemGroup>
