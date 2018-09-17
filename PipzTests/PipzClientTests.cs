@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pipz.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pipz.Tests
 {
@@ -10,7 +11,7 @@ namespace Pipz.Tests
         PipzClient _Pipz = new PipzClient();
 
         [TestMethod()]
-        public void Sould_Identify_Without_All_Fields()
+        public void Should_Identify_Without_All_Fields()
         {
             var user = new User
             {
@@ -24,39 +25,43 @@ namespace Pipz.Tests
         }
 
         [TestMethod()]
-        public void IdentifyTest()
+        public void Should_Identify_With_all_Fields()
         {
             var user = new User
             {
-                Name = "Fabio Junior",
-                Email = "fabio.junior@redehost.com.br",
+                Name = "Teste",
+                Email = "teste@redehost.com.br",
                 JobTitle = "Developer",
-                Phone = 5551982599714,
+                Phone = 5551980000000,
                 Company = new Company { Name = "RedeHost", WebSite = "redehost.com.br", RemoteId = "RedeHost" },
-                UserId = "fabio.junior@redehost.com.br"
+                UserId = "teste@redehost.com.br"
             };
 
             _Pipz.Identify(user);
         }
 
         [TestMethod()]
-        public void Track()
+        public async Task Should_Track_An_Action()
         {
             var user = new User
             {
-                Name = "Pablo",
-                Email = "pablo.feijo@redehost.com.br",
+                Name = "Teste",
+                Email = "teste@redehost.com.br",
                 JobTitle = "Developer",
-                Phone = 5551982599714,
+                Phone = 5551980000000,
                 Company = new Company { Name = "RedeHost", WebSite = "redehost.com.br", RemoteId = "RedeHost" },
-                UserId = "pablo.feijo@redehost.com.br"
+                UserId = "teste@redehost.com.br"
             };
 
-            var propeties = new Dictionary<string, object>();
-            propeties.Add("proprety1", "Test");
-            propeties.Add("proprety2", "123");
+            var propeties = new Dictionary<string, object>
+            {
+                { "proprety1", "Test" },
+                { "proprety2", "123" }
+            };
 
-            _Pipz.Track("homologacao test", propeties, user);
+            await _Pipz
+                .Identify(user)
+                .Track("homologacao test", propeties);
         }
     }
 }
