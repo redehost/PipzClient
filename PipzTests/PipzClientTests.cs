@@ -32,7 +32,7 @@ namespace Pipz.Tests
                 Name = "Teste",
                 Email = "teste@redehost.com.br",
                 JobTitle = "Developer",
-                Phone = 5551980000000,
+                Phone = "5551980000000",
                 Company = new Company { Name = "RedeHost", WebSite = "redehost.com.br", RemoteId = "RedeHost" },
                 UserId = "teste@redehost.com.br"
             };
@@ -48,7 +48,7 @@ namespace Pipz.Tests
                 Name = "Teste",
                 Email = "teste@redehost.com.br",
                 JobTitle = "Developer",
-                Phone = 5551980000000,
+                Phone = "5551980000000",
                 Company = new Company { Name = "RedeHost", WebSite = "redehost.com.br", RemoteId = "RedeHost" },
                 UserId = "teste@redehost.com.br"
             };
