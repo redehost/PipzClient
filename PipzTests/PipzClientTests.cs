@@ -61,7 +61,7 @@ namespace Pipz.Tests
 
             await _Pipz
                 .Identify(user)
-                .Track("homologacao  test", propeties);
+                .Track("homologacao test", propeties);
         }
     }
 }
