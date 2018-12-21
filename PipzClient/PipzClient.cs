@@ -5,6 +5,7 @@ using Polly.Retry;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,20 +64,20 @@ namespace Pipz
 
                 var body = new
                 {
-                    traits = new
+                    traits = new Dictionary<string, object>
                     {
-                        name = user.Name,
-                        email = user.Email,
-                        job_title = user.JobTitle,
-                        phone = user.Phone,
-                        company = user.Company,
+                        {"name", user.Name },
+                        {"email", user.Email },
+                        {"job_title", user.JobTitle },
+                        {"phone", user.Phone },
+                        {"company", user.Company },
                     },
                     type = "identify",
                     writeKey = ConfigurationManager.AppSettings["pipz:tracker-api-key"],
                     userId = user.UserId
                 };
 
-                var content = JsonConvert.SerializeObject(body);
+                var content = JsonConvert.SerializeObject(AddCustomFIeldsTotraits(user, body));
 
                 var httpContent = new StringContent(content);
 
@@ -85,10 +86,16 @@ namespace Pipz
                 if (!response.IsSuccessStatusCode)
                     throw new HttpRequestException(response.StatusCode.ToString());
 
-                _user = user;
+                _user = user;                
 
                 return this;
             });
+        }
+
+        private object AddCustomFIeldsTotraits(User user, dynamic body)
+        {
+            user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
+            return body;
         }
 
         /// <summary>

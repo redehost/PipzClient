@@ -34,7 +34,8 @@ namespace Pipz.Tests
                 JobTitle = "Developer",
                 Phone = "5551980000000",
                 Company = new Company { Name = "RedeHost", WebSite = "redehost.com.br", RemoteId = "RedeHost" },
-                UserId = "teste@redehost.com.br"
+                UserId = "teste@redehost.com.br",
+                CustomFields = new Dictionary<string, object> { { "AcessouPainel", true } }
             };
 
             _Pipz.Identify(user);
