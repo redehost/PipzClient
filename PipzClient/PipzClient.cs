@@ -94,12 +94,6 @@ namespace Pipz
             });
         }
 
-        private object AddCustomFieldsToTraits(User user, dynamic body)
-        {
-            user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
-            return body;
-        }
-
         /// <summary>
         /// Chamar um evento na API do pipz
         /// </summary>
@@ -142,7 +136,12 @@ namespace Pipz
                 if (!response.IsSuccessStatusCode)
                     throw new HttpRequestException(response.StatusCode.ToString());
             }, ct);
+        }
 
+        private object AddCustomFieldsToTraits(User user, dynamic body)
+        {
+            user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
+            return body;
         }
     }
 }
