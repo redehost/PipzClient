@@ -77,7 +77,7 @@ namespace Pipz
                     userId = user.UserId
                 };
 
-                var bodyWithCustomFields = AddCustomFIeldsTotraits(user, body);
+                var bodyWithCustomFields = AddCustomFieldsToTraits(user, body);
 
                 var content = JsonConvert.SerializeObject(bodyWithCustomFields);
 
@@ -94,7 +94,7 @@ namespace Pipz
             });
         }
 
-        private object AddCustomFIeldsTotraits(User user, dynamic body)
+        private object AddCustomFieldsToTraits(User user, dynamic body)
         {
             user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
             return body;
