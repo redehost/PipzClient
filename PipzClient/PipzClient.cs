@@ -77,7 +77,9 @@ namespace Pipz
                     userId = user.UserId
                 };
 
-                var content = JsonConvert.SerializeObject(AddCustomFIeldsTotraits(user, body));
+                var bodyWithCustomFields = AddCustomFIeldsTotraits(user, body);
+
+                var content = JsonConvert.SerializeObject(bodyWithCustomFields);
 
                 var httpContent = new StringContent(content);
 
