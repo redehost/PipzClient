@@ -138,6 +138,40 @@ namespace Pipz
             }, ct);
         }
 
+        public async Task Track(string eventName)
+        {
+            CancellationToken ct;
+
+            await _waitAndRetryAsyncPolicy.ExecuteAsync(async token =>
+            {
+                if (eventName == null)
+                    throw new NullReferenceException("eventName");
+
+                if (_user == null)
+                    throw new NullReferenceException("You should call Identify method first");
+
+                if (_user.Email == null)
+                    throw new NullReferenceException("You should fill a valid e-mail");
+
+                var body = new
+                {
+                    @event = eventName,
+                    type = "track",
+                    writeKey = ConfigurationManager.AppSettings["pipz:tracker-api-key"],
+                    userId = _user.Email
+                };
+
+                var content = JsonConvert.SerializeObject(body);
+
+                var httpContent = new StringContent(content);
+
+                var response = await _httpClient.PostAsync(_httpClient.BaseAddress, httpContent);
+
+                if (!response.IsSuccessStatusCode)
+                    throw new HttpRequestException(response.StatusCode.ToString());
+            }, ct);
+        }
+
         private object AddCustomFieldsToTraits(User user, dynamic body)
         {
             user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
