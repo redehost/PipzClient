@@ -5,6 +5,7 @@ using Polly.Retry;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,20 +64,22 @@ namespace Pipz
 
                 var body = new
                 {
-                    traits = new
+                    traits = new Dictionary<string, object>
                     {
-                        name = user.Name,
-                        email = user.Email,
-                        job_title = user.JobTitle,
-                        phone = user.Phone,
-                        company = user.Company,
+                        {"name", user.Name },
+                        {"email", user.Email },
+                        {"job_title", user.JobTitle },
+                        {"phone", user.Phone },
+                        {"company", user.Company },
                     },
                     type = "identify",
                     writeKey = ConfigurationManager.AppSettings["pipz:tracker-api-key"],
                     userId = user.UserId
                 };
 
-                var content = JsonConvert.SerializeObject(body);
+                var bodyWithCustomFields = AddCustomFieldsToTraits(user, body);
+
+                var content = JsonConvert.SerializeObject(bodyWithCustomFields);
 
                 var httpContent = new StringContent(content);
 
@@ -85,7 +88,7 @@ namespace Pipz
                 if (!response.IsSuccessStatusCode)
                     throw new HttpRequestException(response.StatusCode.ToString());
 
-                _user = user;
+                _user = user;                
 
                 return this;
             });
@@ -133,7 +136,46 @@ namespace Pipz
                 if (!response.IsSuccessStatusCode)
                     throw new HttpRequestException(response.StatusCode.ToString());
             }, ct);
+        }
 
+        public async Task Track(string eventName)
+        {
+            CancellationToken ct;
+
+            await _waitAndRetryAsyncPolicy.ExecuteAsync(async token =>
+            {
+                if (eventName == null)
+                    throw new NullReferenceException("eventName");
+
+                if (_user == null)
+                    throw new NullReferenceException("You should call Identify method first");
+
+                if (_user.Email == null)
+                    throw new NullReferenceException("You should fill a valid e-mail");
+
+                var body = new
+                {
+                    @event = eventName,
+                    type = "track",
+                    writeKey = ConfigurationManager.AppSettings["pipz:tracker-api-key"],
+                    userId = _user.Email
+                };
+
+                var content = JsonConvert.SerializeObject(body);
+
+                var httpContent = new StringContent(content);
+
+                var response = await _httpClient.PostAsync(_httpClient.BaseAddress, httpContent);
+
+                if (!response.IsSuccessStatusCode)
+                    throw new HttpRequestException(response.StatusCode.ToString());
+            }, ct);
+        }
+
+        private object AddCustomFieldsToTraits(User user, dynamic body)
+        {
+            user.CustomFields.ToList().ForEach(customField => body.traits.Add(customField.Key, customField.Value));
+            return body;
         }
     }
 }

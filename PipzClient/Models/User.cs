@@ -1,4 +1,6 @@
-﻿namespace Pipz.Models
+﻿using System.Collections.Generic;
+
+namespace Pipz.Models
 {
     public class User
     {
@@ -8,5 +10,6 @@
         public string Phone { get; set; }
         public Company Company { get; set; }
         public string UserId { get; set; }
+        public Dictionary<string, object> CustomFields { get; set; }
     }
 }
