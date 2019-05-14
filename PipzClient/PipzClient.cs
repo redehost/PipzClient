@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Pipz
 {
-    public class PipzClient
+    public class PipzClient : IPipzClient
     {
         private HttpClient _httpClient;
         private RetryPolicy _waitAndRetryPolicy;
